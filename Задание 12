@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WinFormsApp12_g_1
+{
+    public partial class Form1 : Form
+    {
+        Triangle triangle;
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            ProcessTriangle();
+        }
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            ProcessTriangle();
+        }
+        private void ProcessTriangle()
+        {
+            try
+            {
+                triangle = (Triangle)textBox1.Text;
+
+                labelToString.Text = (string)triangle;
+                labelTrueFalse.Text = $"Треугольник: {(triangle ? "существует" : "не существует")}";
+                labelOperatorPlusPlus.Text = $"Операция ++: {(string)triangle++}";
+                labelOperatorMinusMinus.Text = $"Операция --: {(string)triangle--}";
+                labelMultiply.Text = $"Операция *: {(string)(triangle * int.Parse(textBox2.Text))}";
+            }
+            catch
+            {
+                labelToString.Text = "Ошибка ввода";
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                labelSideLengthByIndex.Text=triangle[int.Parse(textBox3.Text)].ToString();
+            }
+            catch
+            {
+                labelSideLengthByIndex.Text="Ошибка ввода";
+            }
+
+        }
+    }
+}
