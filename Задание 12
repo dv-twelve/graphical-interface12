@@ -46,7 +46,7 @@ namespace WinFormsApp12_g_1
             }
             catch
             {
-                labelToString.Text = "Ошибка ввода";
+                labelToString.Text = "ошибка ввода";
             }
         }
 
